@@ -46,6 +46,8 @@ RUN \
     php81-pecl-xmlrpc \
     acl 
   RUN  mkdir -pv /test 
+  RUN  mkdir -pv  /etc/supervisor.d/
   COPY  src/etc/supervisor.d/  /etc/supervisor.d/
+  RUN ls -la /etc/supervisor.d/
 
 #CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

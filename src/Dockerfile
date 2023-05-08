@@ -46,7 +46,6 @@ RUN \
     php81-pecl-xmlrpc \
     acl 
   RUN  mkdir -pv /test 
-  RUN setfacl -m g:10001:rwx test/
-
+  COPY  src/etc/supervisor.d/  /etc/supervisor.d/
 
 #CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

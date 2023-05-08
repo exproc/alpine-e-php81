@@ -43,6 +43,10 @@ RUN \
     whois && \
     apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
     php81-pecl-mcrypt \
-    php81-pecl-xmlrpc
+    php81-pecl-xmlrpc \
+    acl \
+    mkdir -pv /test \
+    setfacl -m g:10001:rwx test/
+
 
 #CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

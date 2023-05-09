@@ -48,8 +48,8 @@ RUN \
   RUN  mkdir -pv /test 
    # COPY src/supervisor.d/  /etc/supervisor.d/
    # RUN rm /etc/supervisor.d/Fix-permission.ini
-    COPY src/script/ /
-    RUN chmod +x /f_acl.sh
+  RUN  setfacl -m g:10001:rwx /test/
+  RUN getfacl /test/
   RUN ls -la /etc/supervisor.d/
-  CMD [ "/bin/bash" ,"/f_acl.sh" ]
+  
  CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

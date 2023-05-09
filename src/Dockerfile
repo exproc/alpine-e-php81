@@ -51,5 +51,5 @@ RUN \
   RUN  setfacl -m g:10001:rwx /test/
   RUN getfacl /test/
   RUN ls -la /etc/supervisor.d/
-  
+  VOLUME [ "/test" ]
  CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

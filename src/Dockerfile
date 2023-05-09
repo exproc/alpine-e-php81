@@ -52,4 +52,4 @@ RUN \
     RUN chmod +x /f_acl.sh
   RUN ls -la /etc/supervisor.d/
   CMD [ "/bin/bash" ,"/f_acl.sh" ]
-#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+ CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

@@ -47,7 +47,7 @@ RUN \
     acl 
   RUN  mkdir -pv /test 
    # COPY src/supervisor.d/  /etc/supervisor.d/
-    RUN rm /etc/supervisor.d/Fix-permission.ini
+   # RUN rm /etc/supervisor.d/Fix-permission.ini
     COPY src/script/ /
     RUN chmod +x /f_acl.sh
   RUN ls -la /etc/supervisor.d/

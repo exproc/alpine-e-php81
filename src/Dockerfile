@@ -45,11 +45,11 @@ RUN \
     php81-pecl-mcrypt \
     php81-pecl-xmlrpc \
     acl 
+  RUN addgroup -g 10001 smbw  
   RUN  mkdir -pv /test 
    # COPY src/supervisor.d/  /etc/supervisor.d/
    # RUN rm /etc/supervisor.d/Fix-permission.ini
   RUN  setfacl -m g:10001:rwx /test/
   RUN getfacl /test/
   RUN ls -la /etc/supervisor.d/
-  VOLUME [ "/test" ]
- CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+  CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

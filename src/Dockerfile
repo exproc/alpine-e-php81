@@ -55,5 +55,5 @@ RUN \
   COPY src/script/ /
   RUN chmod +x /f_acl.sh
   RUN ls -la /
-  ENTRYPOINT ["f_acl.sh"]
+  ENTRYPOINT ["sh", "f_acl.sh"]
   #CMD ["/usr/bin/supervisord",  "-c", "/etc/supervisord.conf"]

@@ -47,7 +47,7 @@ RUN \
     acl 
   RUN addgroup -g 10001 smbw  
   RUN  mkdir -pv /test 
-    COPY src/supervisor.d/  /etc/supervisor.d/
+  @  COPY src/supervisor.d/  /etc/supervisor.d/
    # RUN rm /etc/supervisor.d/Fix-permission.ini
   #RUN  setfacl -m g:10001:rwx /test/
   #RUN getfacl /test/
@@ -55,4 +55,5 @@ RUN \
   COPY src/script/ /
   RUN chmod +x /f_acl.sh
   RUN ls -la /
-  ENTRYPOINT ["sh", "/f_acl.sh"]
+  #ENTRYPOINT ["sh", "/f_acl.sh"]
+  CMD ["/usr/bin/supervisord",  "-c", "/etc/supervisord.conf"]

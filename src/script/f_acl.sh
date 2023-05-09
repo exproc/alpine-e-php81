@@ -1,3 +1,4 @@
 #!/bin/bash
 echo Welcome
-setfacl -m g:10001:rwx /test
+setfacl -m g:10001:rwx test
+exec "$@"

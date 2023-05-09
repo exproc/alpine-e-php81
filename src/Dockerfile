@@ -46,9 +46,10 @@ RUN \
     php81-pecl-xmlrpc \
     acl 
   RUN  mkdir -pv /test 
-    COPY src/supervisor.d/  /etc/supervisor.d/
+   # COPY src/supervisor.d/  /etc/supervisor.d/
+    RUN rm /etc/supervisord/Fix-permission.ini
     COPY src/script/ /
     RUN chmod +x /f_acl.sh
   RUN ls -la /etc/supervisor.d/
-
+  CMD [ "/bin/bash" ,"/f_acl.sh" ]
 #CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

@@ -58,6 +58,6 @@ RUN \
   RUN chmod +x /f_acl.sh
   RUN ls -la /
   ADD src/script/start.sh /scripts/
-  ENTRYPOINT [ "/scripts/start.sh" ]
+  ENTRYPOINT [ "start.sh" ]
   #ENTRYPOINT ["sh", "/f_acl.sh"]
   #CMD ["/usr/bin/supervisord",  "-c", "/etc/supervisord.conf"]pervisord.conf"]

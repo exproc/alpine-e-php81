@@ -3,7 +3,7 @@ LABEL Maintainer="Chris c <chris@cchalifo.xyz>"
 LABEL Description="Alpine Linux edge Php 8.1"
 RUN \
   echo "**** install runtime packages ****" && \
-  apk add --no-cache --upgrade \
+  apk add --no-cache  \
     php81-bcmath \
     php81-bz2 \
     php81-ctype \
@@ -40,14 +40,16 @@ RUN \
     php81-xmlreader \
     php81-xsl \
     php81-zip \
-    whois && \
+    php81-fpm\
+    acl && \
     apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
     php81-pecl-mcrypt \
-    php81-pecl-xmlrpc \
-    acl 
+    php81-pecl-xmlrpc 
+   
   RUN addgroup -g 10001 smbw  
   RUN  mkdir -pv /test 
-  #COPY src/supervisor.d/  /etc/supervisor.d/
+  ADD src/supervisor.d/nginx.ini  /etc/supervisor.d/
+  ADD php-fmp-81.ini /etc/supervisor.d/
   #RUN rm /etc/supervisor.d/Fix-permission.ini
   #RUN  setfacl -m g:10001:rwx /test/
   #RUN getfacl /test/
@@ -55,5 +57,7 @@ RUN \
   COPY src/script/ /
   RUN chmod +x /f_acl.sh
   RUN ls -la /
-  ENTRYPOINT ["sh", "/f_acl.sh"]
-  #CMD ["/usr/bin/supervisord",  "-c", "/etc/supervisord.conf"]
+  ADD src/script/start.sh /scripts/
+  ENTRYPOINT [ "/scripts/start.sh" ]
+  #ENTRYPOINT ["sh", "/f_acl.sh"]
+  #CMD ["/usr/bin/supervisord",  "-c", "/etc/supervisord.conf"]pervisord.conf"]

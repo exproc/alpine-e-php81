@@ -44,7 +44,8 @@ RUN \
     acl && \
     apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
     php81-pecl-mcrypt \
-    php81-pecl-xmlrpc 
+    php81-pecl-xmlrpc \
+    php81-gettext
    
   RUN addgroup -g 10001 smbw  
   RUN  mkdir -pv /test 

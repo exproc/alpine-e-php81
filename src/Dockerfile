@@ -49,7 +49,7 @@ RUN \
   RUN addgroup -g 10001 smbw  
   RUN  mkdir -pv /test 
   ADD src/supervisor.d/nginx.ini  /etc/supervisor.d/
-  ADD php-fmp-81.ini /etc/supervisor.d/
+  ADD src/supervisor.d/php-fmp-81.ini /etc/supervisor.d/
   #RUN rm /etc/supervisor.d/Fix-permission.ini
   #RUN  setfacl -m g:10001:rwx /test/
   #RUN getfacl /test/

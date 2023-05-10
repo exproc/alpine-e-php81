@@ -55,7 +55,8 @@ RUN \
   #RUN getfacl /test/
   RUN ls -la /etc/supervisor.d/
   COPY src/script/ /
-  RUN chmod +x /f_acl.sh
+  RUN chmod +x /f_acl.sh && \
+  chmod +x /start.sh
   RUN ls -la /
   ADD src/script/start.sh /
   ENTRYPOINT [ "/start.sh" ]
